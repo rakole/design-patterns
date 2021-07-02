@@ -1,9 +1,12 @@
 package com.rhishi.command;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static com.rhishi.command.Commands.DEPOSIT;
 import static com.rhishi.command.Commands.WITHDRAW;
+import static java.util.Arrays.asList;
+import static java.util.List.*;
 
 enum Commands {
     WITHDRAW, DEPOSIT;
@@ -67,7 +70,7 @@ class CommandImpl implements Command {
 class Demo {
     public static void main(String[] args) {
         BankAccount bankAccount = new BankAccount(100);
-        List<Command> commands = List.of(new CommandImpl(DEPOSIT, 500, bankAccount),
+        List<Command> commands = asList(new CommandImpl(DEPOSIT, 500, bankAccount),
                 new CommandImpl(WITHDRAW, 200, bankAccount));
 
         commands.forEach(Command::execute);
